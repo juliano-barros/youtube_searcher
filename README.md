@@ -1,4 +1,13 @@
-# How to install<br><br>
+# <h1>Youtube Searcher</h1><br><br>
+
+This app is to test Laravel and asynchronous search on Youtube on server side<br>
+This app was built with:
+- PHP 7<br> 
+- Laravel 5.5<br>
+- Bootstrap 4<br>
+- Guzzle<br>
+
+## How to install<br><br>
 
 Clone git repository<br>
 git clone https://github.com/juliano-barros/youtube_searcher.git
@@ -22,7 +31,7 @@ APP_KEY_YOUTUBE=somevalidkeyhere<br><br>
 - **[Create key on youtube](https://developers.google.com/youtube/registering_an_application)**
 <br><br>
 
-You can see this app on<br>
+## You can see this app on Horkoku<br>
 - **[Youtube Searcher](https://newyoutubesearcher.herokuapp.com/)**
 <br><br>
 
