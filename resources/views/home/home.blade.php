@@ -18,8 +18,8 @@
 					</form>
 				</div>
 			</div>
-			<div id="player" class="form-control"></div>
-			<div class="form-control" id="groupListVideos" >
+			<div id="player" class="form-control" style="display: none;"></div>
+			<div class="form-control" id="groupListVideos" style="display: none;">
 				<ul class="list-group" id="listVideos">
   				</ul>
 				<div id="loading" style="display: none;font-weight: bold; text-align: center;"> Loading... </div>
@@ -54,6 +54,7 @@
     	if ( ! loading ){
     		loading = true;
 
+    		$('#groupListVideos').css('display', 'block');
     		$('#loading').css('display', 'block');
 
 	        $.ajax({
@@ -63,6 +64,8 @@
 	            success: function (data) {
 
 	            	var obj = JSON.parse(data);
+		
+		    		$('#player').css('display', 'block');
 
 	            	for (var i = 0; i < obj.items.length ; i++) {
 	            		if ( ( i === 0 ) && playVideoOnLoad ) {
