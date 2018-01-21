@@ -19,10 +19,10 @@
 				</div>
 			</div>
 			<div id="player" class="form-control"></div>
-			<div class="form-control">
+			<div class="form-control" id="groupListVideos" >
 				<ul class="list-group" id="listVideos">
   				</ul>
-				
+				<div id="loading" style="display: none;font-weight: bold; text-align: center;"> Loading... </div>
 			</div>
 		</div>
 	</div>
@@ -46,12 +46,16 @@
     var loading = false;
 
     var onClickVid = function(element){
-    	player.loadVideoById(element.target.id);
+    	$('body').scrollTop(0);
+    	player.loadVideoById($(element.target).attr('data-id'));
     }
 
     function searchVideos(){
     	if ( ! loading ){
     		loading = true;
+
+    		$('#loading').css('display', 'block');
+
 	        $.ajax({
 	            type: 'post',
 	            url: frm.attr('action'),
@@ -66,9 +70,9 @@
 		            		playVideoOnLoad = false;
 		            	}
 
-		            	var imgVid = '<img src="' +obj.items[i].snippet.thumbnails.default.url + '" class="img-thumbnail" />';
+		            	var imgVid = '<img src="' +obj.items[i].snippet.thumbnails.default.url + '" class="img-thumbnail" data-id="' + obj.items[i].id.videoId + '"/>';
 
-					 	$('#listVideos').append( '<li class="list-group-item"><a href="#" id="' + obj.items[i].id.videoId + '">' + imgVid + 
+					 	$('#listVideos').append( '<li class="list-group-item" data-id="' + obj.items[i].id.videoId + '"><a href="#" data-id="' + obj.items[i].id.videoId + '">' + imgVid + 
 					 		 obj.items[i].snippet.title + '<br>' + obj.items[i].snippet.description + '</a></li>' )
 						
 	            	}
@@ -76,6 +80,8 @@
 
 	            	$("#nextpage").val( obj.nextPageToken );
 	            	
+		    		$('#loading').css('display', 'none');
+
 	            	loading = false;
 
 	            }
@@ -133,6 +139,7 @@
   	function stopVideo() {
     	player.stopVideo();
     } 
+
 
     window.onscroll = function(ev) {
     	if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
