@@ -1,4 +1,5 @@
-# <h1>Youtube Searcher</h1><br><br>
+# <h1>Youtube Searcher </h1><br><br>
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=youtube_searcher&metric=alert_status)](https://sonarcloud.io/dashboard?id=youtube_searcher)
 
 This app is to test Laravel and asynchronous search on Youtube on server side<br>
 This app was built with:
