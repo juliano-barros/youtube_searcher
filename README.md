@@ -4,9 +4,9 @@
 This app is to test Laravel and asynchronous search on Youtube on server side<br>
 This app was built with:
 - PHP 7<br> 
-- Laravel 5.5<br>
-- Bootstrap 4<br>
-- Guzzle<br>
+- Laravel 5.5 <br>
+- Bootstrap 4 <br>
+- Guzzle <br>
 
 ## How to install<br><br>
 
